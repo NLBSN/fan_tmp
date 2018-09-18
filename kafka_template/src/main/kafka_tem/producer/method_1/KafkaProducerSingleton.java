@@ -22,11 +22,9 @@ public final class KafkaProducerSingleton {
     private static KafkaProducer<String, String> kafkaProducer;
 
     private Random random = new Random();
-
+    //主题
     private String topic;
-    /**
-     *     重试次数
-     */
+    //重试次数
     private int retry;
 
     /**
@@ -37,24 +35,25 @@ public final class KafkaProducerSingleton {
 
 
     /**
-     * @description 静态内部类
      * @author fan
+     * @description 静态内部类
      */
     private static class LazyHandler {
         private static final KafkaProducerSingleton instance = new KafkaProducerSingleton();
     }
 
     /**
-     * @description 单例模式,kafkaProducer是线程安全的,可以多线程共享一个实例
      * @return
+     * @description 单例模式, kafkaProducer是线程安全的, 可以多线程共享一个实例
      */
     public static final KafkaProducerSingleton getInstance() {
         return LazyHandler.instance;
     }
 
     /**
+     * @param topic 主题
+     * @param retry 重试次数
      * @description kafka生产者进行初始化
-     * @return KafkaProducer
      */
     public void init(String topic, int retry) {
         this.topic = topic;
@@ -82,15 +81,16 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * @description 通过kafkaProducer发送消息
      * @param topic        消息接收主题
      * @param partitionNum 哪一个分区
      * @param retry        重试次数
      * @param message      具体消息值
+     * @description 通过kafkaProducer发送消息
      */
     public void sendKafkaMessage(final String message) {
         /**
-         * 1、如果指定了某个分区,会只讲消息发到这个分区上 2、如果同时指定了某个分区和key,则也会将消息发送到指定分区上,key不起作用
+         * 1、如果指定了某个分区,会只讲消息发到这个分区上
+         * 2、如果同时指定了某个分区和key,则也会将消息发送到指定分区上,key不起作用
          * 3、如果没有指定分区和key,那么将会随机发送到topic的分区中 4、如果指定了key,那么将会以hash<key>的方式发送到分区中
          */
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(
@@ -110,8 +110,8 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * @description 当kafka消息发送失败后,重试
      * @param retryMessage
+     * @description 当kafka消息发送失败后, 重试
      */
     private void retryKakfaMessage(final String retryMessage) {
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(
