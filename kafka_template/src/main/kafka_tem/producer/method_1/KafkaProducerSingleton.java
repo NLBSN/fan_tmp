@@ -24,27 +24,28 @@ public final class KafkaProducerSingleton {
     private Random random = new Random();
 
     private String topic;
-
+    /**
+     *     重试次数
+     */
     private int retry;
 
+    /**
+     * @description 空构造函数
+     */
     private KafkaProducerSingleton() {
-
     }
 
 
     /**
-     * 静态内部类
-     *
-     * @author tanjie
+     * @description 静态内部类
+     * @author fan
      */
     private static class LazyHandler {
-
         private static final KafkaProducerSingleton instance = new KafkaProducerSingleton();
     }
 
     /**
-     * 单例模式,kafkaProducer是线程安全的,可以多线程共享一个实例
-     *
+     * @description 单例模式,kafkaProducer是线程安全的,可以多线程共享一个实例
      * @return
      */
     public static final KafkaProducerSingleton getInstance() {
@@ -52,8 +53,7 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * kafka生产者进行初始化
-     *
+     * @description kafka生产者进行初始化
      * @return KafkaProducer
      */
     public void init(String topic, int retry) {
@@ -82,8 +82,7 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * 通过kafkaProducer发送消息
-     *
+     * @description 通过kafkaProducer发送消息
      * @param topic        消息接收主题
      * @param partitionNum 哪一个分区
      * @param retry        重试次数
@@ -111,8 +110,7 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * 当kafka消息发送失败后,重试
-     *
+     * @description 当kafka消息发送失败后,重试
      * @param retryMessage
      */
     private void retryKakfaMessage(final String retryMessage) {
@@ -130,7 +128,7 @@ public final class KafkaProducerSingleton {
     }
 
     /**
-     * kafka实例销毁
+     * @description kafka实例销毁
      */
     public void close() {
         if (null != kafkaProducer) {
