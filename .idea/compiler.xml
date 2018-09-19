@@ -8,12 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="kafka_template" />
       </profile>
-      <profile name="Annotation profile for kafka_storm_xm4" enabled="true">
-        <sourceOutputDir name="../kafka_storm_xm4/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../kafka_storm_xm4/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="kafka_storm_case4" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="kafka_storm_case4" target="1.8" />

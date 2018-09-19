@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/fan_tmp.iml" filepath="$PROJECT_DIR$/.idea/fan_tmp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kafka_storm_case4/kafka_storm_case4.iml" filepath="$PROJECT_DIR$/kafka_storm_case4/kafka_storm_case4.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka_template/kafka_template.iml" filepath="$PROJECT_DIR$/kafka_template/kafka_template.iml" />
     </modules>
   </component>
