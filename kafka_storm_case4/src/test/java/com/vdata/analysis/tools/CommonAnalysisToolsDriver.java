@@ -24,7 +24,7 @@ public class CommonAnalysisToolsDriver {
 				InstantiationException, IllegalAccessException{
 		if(map==null)
 			map=new HashMap<LogToolsTag, CommonAnalysis>();
-		
+
 		CommonAnalysis analysis=map.get(tag);
 		if(analysis==null){
 			String toolTag=tag.getTag();
@@ -32,7 +32,30 @@ public class CommonAnalysisToolsDriver {
 			analysis=(CommonAnalysis)claz.newInstance();
 			map.put(tag, analysis);
 		}
-		
+
 		return analysis.analysis(logline);
+	}
+
+	public static String parserToJson(String logline, LogToolsTag tag)
+			throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	{
+		if (map == null) {
+			map = new HashMap();
+		}
+		CommonAnalysis analysis = (CommonAnalysis)map.get(tag);
+		if (analysis == null) {
+			String toolTag = tag.getTag();
+			Class claz = Class.forName(toolTag);
+			analysis = (CommonAnalysis)claz.newInstance();
+			map.put(tag, analysis);
+		}
+
+		LogBean bean = analysis.analysis(logline);
+		String jsonLine = null;
+
+		if (bean != null) {
+			jsonLine = JSONObject.fromObject(bean).toString();
+		}
+		return jsonLine;
 	}
 }

@@ -11,8 +11,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="kafka_storm_case4" target="1.5" />
-      <module name="kafka_tem" target="1.5" />
+      <module name="kafka_storm_case4" target="1.8" />
+      <module name="kafka_tem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
