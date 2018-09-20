@@ -64,16 +64,11 @@ public class TrackTopologyDriver {
         KafkaSpout kafkaSpout = new KafkaSpout(spoutConfig);
 
         //top设置kafkaspout
-        builder.setSpout("kafkaSpout", kafkaSpout, Integer.parseInt(
-                prop.getProperty(TOP_KAFKA_SPOUT_EXCUTOR_NUMBER,
-                        DEFAULT_TOP_KAFKA_SPOUT_EXCUTOR_NUMBER)));
+        builder.setSpout("kafkaSpout", kafkaSpout, Integer.parseInt(prop.getProperty(TOP_KAFKA_SPOUT_EXCUTOR_NUMBER, DEFAULT_TOP_KAFKA_SPOUT_EXCUTOR_NUMBER)));
         //top设置解析的bolt
         builder.setBolt("analysisBolt", new TrackAnalysisBolt(), Integer.parseInt(prop.getProperty(TOP_ANALYSIS_BOLT_EXCUTOR_NUMBER, DEFAULT_TOP_ANALYSIS_BOLT_EXCUTOR_NUMBER))).shuffleGrouping("kafkaSpout");
         //设置写kafka的bolt
-        builder.setBolt("toKafkaBolt", new ToKafkaBolt(), Integer.parseInt(
-                prop.getProperty(TOP_TOKAFKA_BOLT_EXCUTOR_NUMBER,
-                        DEFAULT_TOP_TOKAFKA_BOLT_EXCUTOR_NUMBER)))
-                .shuffleGrouping("analysisBolt");
+        builder.setBolt("toKafkaBolt", new ToKafkaBolt(), Integer.parseInt(prop.getProperty(TOP_TOKAFKA_BOLT_EXCUTOR_NUMBER, DEFAULT_TOP_TOKAFKA_BOLT_EXCUTOR_NUMBER))).shuffleGrouping("analysisBolt");
 
         Config conf = new Config();
         //将kafka生产者所需要的参数通过config传到bolt中

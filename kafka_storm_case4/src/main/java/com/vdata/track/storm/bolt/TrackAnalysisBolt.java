@@ -15,7 +15,7 @@ import org.apache.storm.tuple.Values;
 import java.util.Map;
 
 /**
- * @author tzc
+ * @author fan
  * @description 日志解析逻辑bolt
  */
 public class TrackAnalysisBolt extends BaseRichBolt {
@@ -36,10 +36,9 @@ public class TrackAnalysisBolt extends BaseRichBolt {
             if (StringUtils.isNotBlank(line)) {
                 //适应同时传输过来多行数据的情况
                 String[] lines = line.split("\n", -1);
-                StringBuilder buffer = new StringBuilder();//idea提示修改，原来是stringbuffer
+                StringBuffer buffer = new StringBuffer();//idea提示修改，原来是stringbuffer
                 for (String tmpLine : lines) {
-                    String jsonLine = CommonAnalysisToolsDriver
-                            .parserToJson(tmpLine, LogToolsTag.TRACK_ORIGINAL_LOG);
+                    String jsonLine = CommonAnalysisToolsDriver.parserToJson(tmpLine, LogToolsTag.TRACK_ORIGINAL_LOG);
 //					if(StringUtils.isNotBlank(jsonLine)){
 //						collector.emit(new Values(jsonLine));
 //					}

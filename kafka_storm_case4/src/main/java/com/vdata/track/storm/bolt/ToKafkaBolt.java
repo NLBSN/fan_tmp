@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @author tzc
+ * @author fan
  * @description 将数据写入kafka中
  */
 public class ToKafkaBolt extends BaseRichBolt {
