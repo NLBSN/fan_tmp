@@ -1,13 +1,13 @@
 package com.vdata.analysis.tools;
 
+import com.vdata.analysis.bean.LogBean;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import com.vdata.analysis.bean.LogBean;
-
 /**
  * @description 日志解析驱动类
- * @author tzc
+ * @author fan
  *
  */
 public class CommonAnalysisToolsDriver {

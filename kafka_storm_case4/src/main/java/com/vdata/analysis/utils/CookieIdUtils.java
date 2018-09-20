@@ -3,12 +3,9 @@ package com.vdata.analysis.utils;
 import java.util.Calendar;
 import java.util.Random;
 
-import org.junit.Test;
-
-
 /**
  * @description 用于重新获取随机cookieid
- * @author tzc
+ * @author fan
  *
  */
 public class CookieIdUtils {

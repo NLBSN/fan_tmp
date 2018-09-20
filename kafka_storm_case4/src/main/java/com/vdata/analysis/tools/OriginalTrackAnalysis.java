@@ -1,5 +1,14 @@
 package com.vdata.analysis.tools;
 
+import com.vdata.analysis.bean.LogBean;
+import com.vdata.analysis.bean.OriginalTrackBean;
+import com.vdata.analysis.utils.CookieIdUtils;
+import com.vdata.analysis.utils.GetObjectToClassUtils;
+import com.vdata.analysis.utils.TrackUrlUtils;
+import com.vdata.analysis.utils.URLDecodeUtils;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,17 +16,10 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import net.sf.json.JSONObject;
-
-import org.apache.commons.lang.StringUtils;
-
-import com.vdata.analysis.bean.LogBean;
-import com.vdata.analysis.bean.OriginalTrackBean;
-import com.vdata.analysis.utils.CookieIdUtils;
-import com.vdata.analysis.utils.GetObjectToClassUtils;
-import com.vdata.analysis.utils.TrackUrlUtils;
-import com.vdata.analysis.utils.URLDecodeUtils;
-
+/**
+ * @description OriginalTrack日志解析
+ * @author fan
+ */
 public class OriginalTrackAnalysis extends CommonAnalysis {
 
 	@Override

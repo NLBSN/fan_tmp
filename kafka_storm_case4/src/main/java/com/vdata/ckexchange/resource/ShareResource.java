@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * @description 资源池
- * @author tzc
+ * @author fan
  *
  */
 public class ShareResource {

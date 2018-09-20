@@ -2,7 +2,7 @@ package com.vdata.analysis.tools;
 
 /**
  * @description 用于保存日志解析标识
- * @author tzc
+ * @author fan
  *
  */
 public enum LogToolsTag {

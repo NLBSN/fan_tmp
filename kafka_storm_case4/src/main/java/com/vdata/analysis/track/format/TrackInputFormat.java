@@ -12,23 +12,21 @@ import org.apache.hadoop.mapreduce.TaskAttemptContext;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 
 /**
- * 类描述：以整个UV访问情况作为单条记录输入
- * 
- * @author: 58.com
- * @date： 日期：2013-9-24 时间：下午3:10:48
+ * @description 类描述：以整个UV访问情况作为单条记录输入
+ * @author: fan
  */
 public class TrackInputFormat extends FileInputFormat<LongWritable, Text> {
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public RecordReader<LongWritable, Text> createRecordReader(InputSplit split, TaskAttemptContext context) {
-		return new TrackRecordReader();
-	}
+    @SuppressWarnings("deprecation")
+    @Override
+    public RecordReader<LongWritable, Text> createRecordReader(InputSplit split, TaskAttemptContext context) {
+        return new TrackRecordReader();
+    }
 
-	@Override
-	protected boolean isSplitable(JobContext context, Path file) {
-		CompressionCodec codec = new CompressionCodecFactory(context.getConfiguration()).getCodec(file);
-		return codec == null;
-	}
+    @Override
+    protected boolean isSplitable(JobContext context, Path file) {
+        CompressionCodec codec = new CompressionCodecFactory(context.getConfiguration()).getCodec(file);
+        return codec == null;
+    }
 
 }

@@ -2,7 +2,7 @@ package com.vdata.analysis.bean;
 
 /**
  * @description etl之后的日志承载对象
- * @author tzc
+ * @author fan
  *
  */
 public class ETLTrackBean implements LogBean {

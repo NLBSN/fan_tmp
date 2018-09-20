@@ -1,15 +1,14 @@
 package com.vdata.analysis.utils;
 
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.json.JSONObject;
-
-import org.apache.commons.lang.StringUtils;
-
 /**
  * @description 用于对trackurl进行解析的工具
- * @author tzc
+ * @autho fan
  *
  */
 public class TrackUrlUtils {

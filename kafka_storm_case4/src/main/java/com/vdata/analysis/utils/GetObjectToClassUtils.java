@@ -1,15 +1,15 @@
 package com.vdata.analysis.utils;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
-
 /**
  * @description 将日志封装成对象的工具
- * @author tzc
+ * @author fan
  *
  */
 public class GetObjectToClassUtils {

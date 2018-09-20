@@ -2,7 +2,7 @@ package com.vdata.analysis.bean;
 
 /**
  * @description 日志实体接口
- * @author tzc
+ * @author fan
  *
  */
 public interface LogBean {

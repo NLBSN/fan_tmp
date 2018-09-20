@@ -8,7 +8,7 @@ import com.vdata.analysis.utils.GetObjectToClassUtils;
 
 /**
  * @description 解析etl之后的日志，封装成为一个对象
- * @author tzc
+ * @author fan
  *
  */
 public class ETLTrackAnalysis extends CommonAnalysis {

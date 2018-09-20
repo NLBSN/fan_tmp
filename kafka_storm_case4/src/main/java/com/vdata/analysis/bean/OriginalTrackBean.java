@@ -3,7 +3,7 @@ package com.vdata.analysis.bean;
 
 /**
  * @description 用于存储原始日志
- * @author tzc
+ * @author fan
  *
  */
 public class OriginalTrackBean implements LogBean {

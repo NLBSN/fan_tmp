@@ -1,14 +1,16 @@
 package com.vdata.ckexchange.test;
 
-import java.lang.reflect.Method;
-
-import org.junit.Test;
-
 import com.vdata.ckexchange.ClassLoaderDriver;
 import com.vdata.ckexchange.classloader.ZookeeperClassLoader;
 import com.vdata.ckexchange.outdata.SetDataToZkUtils;
 import com.vdata.ckexchange.resource.ShareResource;
+import org.junit.Test;
 
+import java.lang.reflect.Method;
+
+/**
+ * @description zk
+ */
 public class ZkClassLoaderTest {
 	private String zkServer="vdata1:2181,vdata2:2181,vdata3:2181";
 	private String nodePath="/vdata";

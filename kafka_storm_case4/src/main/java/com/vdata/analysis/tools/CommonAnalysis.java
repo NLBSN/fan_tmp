@@ -4,7 +4,7 @@ import com.vdata.analysis.bean.LogBean;
 
 /**
  * @description 日志逻辑解析接口
- * @author tzc
+ * @author fan
  *
  */
 public abstract class CommonAnalysis {

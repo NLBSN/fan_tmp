@@ -12,6 +12,10 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 
+/**
+ * @description URL乱码的处理
+ * @author fan
+ */
 public class URLDecodeUtils {
 	private static final String[] PS = { "`", "~", "!", "@", "#", "$", "^",
 			"&", "(", ")", ":", ";", "\"", "'", "<", ",", ">", "?", "/", "=",
