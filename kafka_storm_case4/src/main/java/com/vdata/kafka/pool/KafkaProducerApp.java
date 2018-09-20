@@ -9,7 +9,7 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 
 /**
  * @description kafka二次封装的生产者连接点
- * @author tzc
+ * @author fan
  *
  */
 public class KafkaProducerApp<T, D> {

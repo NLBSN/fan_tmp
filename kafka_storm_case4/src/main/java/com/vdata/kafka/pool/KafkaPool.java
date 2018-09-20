@@ -62,7 +62,11 @@ public class KafkaPool<U, V> {
 		return config;
 	}
 	
-	//读取配置文件
+	/**
+	 * @description 读取配置文件
+	 * @param confPath
+	 * @return
+	 */
 	private Properties getProperties(String confPath){
 		InputStream in = KafkaPool.class.getClassLoader().getResourceAsStream(confPath);
 		Properties prop = new Properties();

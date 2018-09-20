@@ -6,7 +6,7 @@ import org.apache.commons.pool2.impl.DefaultPooledObject;
 
 /**
  * @description 连接池的工厂类
- * @author tzc
+ * @author fan
  *
  */
 public class PooledKafkaProducerAppFactory<T, D> extends BasePooledObjectFactory<KafkaProducerApp<T, D>> {

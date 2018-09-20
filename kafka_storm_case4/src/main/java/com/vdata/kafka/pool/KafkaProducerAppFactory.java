@@ -2,7 +2,7 @@ package com.vdata.kafka.pool;
 
 /**
  * @description 抽象工作类
- * @author tzc
+ * @author fan
  *
  */
 public abstract class KafkaProducerAppFactory<T, D> {

@@ -1,20 +1,18 @@
 package com.vdata.track.storm.bolt;
 
-import java.util.Map;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 
 import com.vdata.analysis.tools.CommonAnalysisToolsDriver;
 import com.vdata.analysis.tools.LogToolsTag;
+import org.apache.commons.lang.StringUtils;
+import org.apache.storm.task.OutputCollector;
+import org.apache.storm.task.TopologyContext;
+import org.apache.storm.topology.OutputFieldsDeclarer;
+import org.apache.storm.topology.base.BaseRichBolt;
+import org.apache.storm.tuple.Fields;
+import org.apache.storm.tuple.Tuple;
+import org.apache.storm.tuple.Values;
 
-import backtype.storm.task.OutputCollector;
-import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.base.BaseRichBolt;
-import backtype.storm.tuple.Fields;
-import backtype.storm.tuple.Tuple;
-import backtype.storm.tuple.Values;
+import java.util.Map;
 
 /**
  * @author tzc
@@ -38,7 +36,7 @@ public class TrackAnalysisBolt extends BaseRichBolt {
             if (StringUtils.isNotBlank(line)) {
                 //适应同时传输过来多行数据的情况
                 String[] lines = line.split("\n", -1);
-                StringBuffer buffer = new StringBuffer();
+                StringBuilder buffer = new StringBuilder();//idea提示修改，原来是stringbuffer
                 for (String tmpLine : lines) {
                     String jsonLine = CommonAnalysisToolsDriver
                             .parserToJson(tmpLine, LogToolsTag.TRACK_ORIGINAL_LOG);

@@ -4,7 +4,7 @@ import java.util.Properties;
 
 /**
  * @decription 生产者工厂类
- * @author tzc
+ * @author fan
  *
  * @param <T> key值的类型
  * @param <D> value值的类型
