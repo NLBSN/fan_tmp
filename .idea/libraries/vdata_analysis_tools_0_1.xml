@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="vdata-analysis-tools-0.1">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/kafka_storm_case4/lib/vdata-analysis-tools-0.1.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
