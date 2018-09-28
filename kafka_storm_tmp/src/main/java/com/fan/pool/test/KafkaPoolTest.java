@@ -17,7 +17,7 @@ public class KafkaPoolTest {
     @Test
     public void producerTest() throws Exception {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "10.16.48.44:9092");
+        props.put("bootstrap.servers", "10.16.48.44:9092,10.16.48.44:9093");
         props.put("acks", "all");
         props.put("retries", 0);
         props.put("batch.size", 16384);
