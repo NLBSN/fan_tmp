@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="kafka_storm_tmp" />
+        <module name="kafka_tem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="kafka_storm_case4" target="1.8" />
       <module name="kafka_storm_tmp" target="1.8" />
+      <module name="kafka_tem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

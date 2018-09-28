@@ -1,5 +1,6 @@
 package com.fan.analysis.track.format;
 
+
 import org.apache.hadoop.io.Text;
 
 import java.util.ArrayList;

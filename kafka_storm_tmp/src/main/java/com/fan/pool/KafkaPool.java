@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
+
 import org.apache.commons.pool2.PooledObjectFactory;
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
@@ -16,7 +17,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class KafkaPool<U, V> {
-	private final Logger LOG=Logger.getLogger(KafkaPool.class);
+	private Logger LOG=Logger.getLogger(KafkaPool.class);
 	private GenericObjectPool<KafkaProducerApp<U, V>> pool=null;
 	
 	public KafkaPool(Properties properties){//初始化连接池
@@ -74,7 +75,7 @@ public class KafkaPool<U, V> {
 			prop.load(in);//获取配置文件
 			in.close();
 		} catch (IOException e) {
-			LOG.error("No config.properties defined error");
+//			LOG.error("No config.properties defined error");
 		}
 		return prop;
 	}

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/fan_tmp.iml" filepath="$PROJECT_DIR$/.idea/fan_tmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka_storm_tmp/kafka_storm_tmp.iml" filepath="$PROJECT_DIR$/kafka_storm_tmp/kafka_storm_tmp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka_tem/kafka_tem.iml" filepath="$PROJECT_DIR$/kafka_tem/kafka_tem.iml" />
     </modules>
   </component>
 </project>

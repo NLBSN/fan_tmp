@@ -1,4 +1,5 @@
-package com.fan.tools;
+package com.fan.analysis.tools;
+
 
 /**
  * @description 日志实体接口

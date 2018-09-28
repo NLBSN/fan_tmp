@@ -1,6 +1,7 @@
 package com.fan.analysis.tools;
 
 import com.fan.analysis.bean.LogBean;
+import net.sf.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,5 +37,28 @@ public class CommonAnalysisToolsDriver {
 		}
 		
 		return analysis.analysis(logline);
+	}
+	public static String parserToJson(String logline, LogToolsTag tag)
+			throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	{
+		if (map == null) {
+			map = new HashMap();
+		}
+		CommonAnalysis analysis = (CommonAnalysis)map.get(tag);
+		if (analysis == null) {
+			String toolTag = tag.getTag();
+			Class claz = Class.forName(toolTag);
+			analysis = (CommonAnalysis)claz.newInstance();
+			map.put(tag, analysis);
+		}
+
+		LogBean bean = analysis.analysis(logline);
+		String jsonLine = null;
+
+		if (bean != null) {
+			jsonLine = JSONObject.fromObject(bean).toString();//原来的
+//			jsonLine = JSON.toJSONString(bean).toString();
+		}
+		return jsonLine;
 	}
 }
