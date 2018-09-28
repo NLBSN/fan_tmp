@@ -16,6 +16,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
+        <zookeeper>3.4.6</zookeeper>
+        <storm-kafka>1.1.1</storm-kafka>
+        <storm-core>1.1.3</storm-core>
+        <kafka-clients>1.1.0</kafka-clients>
+        <commons-pool2>2.6.0</commons-pool2>
+        <hadoop-common>3.1.1</hadoop-common>
+        <hadoop-mapreduce-client-core>3.1.0</hadoop-mapreduce-client-core><!-->其实这儿的可以去掉，因为里面有MR,可以去掉<-->
     </properties>
 
     <dependencies>
@@ -28,7 +35,7 @@
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
-            <version>3.4.6</version>
+            <version>${zookeeper}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>junit</artifactId>
@@ -36,6 +43,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-->此json包后期尽量替换成其他的<-->
         <dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
@@ -52,7 +60,7 @@
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-kafka</artifactId>
-            <version>1.1.1</version>
+            <version>${storm-kafka}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>kafka-clients</artifactId>
@@ -64,7 +72,7 @@
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-core</artifactId>
-            <version>1.1.3</version>
+            <version>${storm-core}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -80,7 +88,7 @@
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
-            <version>1.1.0</version>
+            <version>${kafka-clients}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>slf4j-api</artifactId>
@@ -92,13 +100,13 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-            <version>2.6.0</version>
+            <version>${commons-pool2}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
-            <version>3.1.1</version>
+            <version>${hadoop-common}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -174,7 +182,7 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-core</artifactId>
-            <version>3.1.0</version>
+            <version>${hadoop-mapreduce-client-core}</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
