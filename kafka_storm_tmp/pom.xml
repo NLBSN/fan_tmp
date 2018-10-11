@@ -56,7 +56,19 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <!--  这是新版本的  -->
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-kafka-client</artifactId>
+            <version>${storm-kafka}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>kafka-clients</artifactId>
+                    <groupId>org.apache.kafka</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--  这是老版本的  -->
         <dependency>
             <groupId>org.apache.storm</groupId>
             <artifactId>storm-kafka</artifactId>
