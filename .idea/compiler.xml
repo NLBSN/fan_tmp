@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="kafka_storm_tmp" />
         <module name="kafka_tem" />
+        <module name="storm_tmp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="kafka_storm_case4" target="1.8" />
       <module name="kafka_storm_tmp" target="1.8" />
       <module name="kafka_tem" target="1.8" />
+      <module name="storm_tmp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

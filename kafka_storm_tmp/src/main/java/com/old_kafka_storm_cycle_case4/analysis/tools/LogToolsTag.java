@@ -12,13 +12,13 @@ public enum LogToolsTag {
 			return "com.fan.com.fan.tools.OriginalTrackAnalysis";
 		}
 	},
-	
+
 	TRACK_ETL_LOG{//track日志解析标识
 		@Override
 		public String getTag() {
 			return "com.fan.com.fan.tools.ETLTrackAnalysis";
 		}
 	};
-	
+
 	public abstract String getTag();// 获取标志
 }

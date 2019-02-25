@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/kafka_storm_tmp/pom.xml" />
         <option value="$PROJECT_DIR$/kafka_tem/pom.xml" />
+        <option value="$PROJECT_DIR$/storm_tmp/pom.xml" />
       </list>
     </option>
   </component>
