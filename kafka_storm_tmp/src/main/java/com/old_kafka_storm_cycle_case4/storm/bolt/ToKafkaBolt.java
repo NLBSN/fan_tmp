@@ -26,7 +26,7 @@ public class ToKafkaBolt extends BaseRichBolt {
 
     @Override
     public void prepare(Map map, TopologyContext context, OutputCollector collector) {
-        //h获取kafka生产者的连接
+        //获取kafka生产者的连接
         String kafka_producer_server = map.get(TrackTopologyDriver.KAFKA_PRODUCER_SERVER).toString();
         initPool(kafka_producer_server);//初始化连接池
         //kafka生产者的topic

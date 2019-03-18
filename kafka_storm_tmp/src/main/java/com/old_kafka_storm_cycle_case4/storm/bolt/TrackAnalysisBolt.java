@@ -39,9 +39,9 @@ public class TrackAnalysisBolt extends BaseRichBolt {
                 StringBuffer buffer = new StringBuffer();//idea提示修改，原来是stringbuffer
                 for (String tmpLine : lines) {
                     String jsonLine = CommonAnalysisToolsDriver.parserToJson(tmpLine, LogToolsTag.TRACK_ORIGINAL_LOG);
-//					if(StringUtils.isNotBlank(jsonLine)){
-//						collector.emit(new Values(jsonLine));
-//					}
+					// if(StringUtils.isNotBlank(jsonLine)){
+					// 	collector.emit(new Values(jsonLine));
+					// }
                     buffer.append(jsonLine);
                     buffer.append("\n");
                 }
