@@ -41,13 +41,13 @@
 
 ####.可以获取全局配置参数
 
-![icon](img/img01.png)
+![icon](../day10_HTTP_Servlet/img/img01.png)
 
 
 获取全局参数
 
 
-![icon](img/img02.png)
+![icon](../day10_HTTP_Servlet/img/img02.png)
 
 
 ####. 可以获取Web应用中的资源
@@ -69,12 +69,12 @@
 
 		直接给相对的路径，然后获取流对象。
 
-![icon](img/img03.png)
+![icon](../day10_HTTP_Servlet/img/img03.png)
 
 
 ### 通过classloader去获取web工程下的资源
 
-![icon](img/img04.png)
+![icon](../day10_HTTP_Servlet/img/img04.png)
 
 
 ### 使用ServletContext存取数据。
@@ -83,20 +83,20 @@
 
 1. 定义一个登陆的html页面， 定义一个form表单
 
-![icon](img/img06.png)
+![icon](../day10_HTTP_Servlet/img/img06.png)
 
 2. 定义一个Servlet，名为LoginServlet
 
 
-![icon](img/img07.png)
+![icon](day10/img/img07.png)
 
 3. 针对成功或者失败，进行判断，然后跳转到不一样的网页
 
-![icon](img/img08.png)
+![icon](day10/img/img08.png)
 
 ###ServletContext存取值分析
 
-![icon](img/img09.png)
+![icon](day10/img/img09.png)
 
 
 ##细节：
@@ -269,7 +269,7 @@
 
 > 原因是tomcat里面有一个默认的Servlet -- DefaultServlet 。这个DefaultServlet 专门用于处理放在tomcat服务器上的静态资源。
 
-![icon](img/img10.png)
+![icon](day10/img/img10.png)
 
 
 
@@ -320,7 +320,7 @@
 
 	2. 完成登录
 
-![icon](img/img11.png)
+![icon](day10/img/img11.png)
 
 ---------------------------------------
 
