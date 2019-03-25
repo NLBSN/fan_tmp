@@ -1,0 +1,157 @@
+day12 Cookie 和 Session
+
+请求转发 和 重定向
+
+区别：
+
+1. 地址不一样。
+2. 请求次数不一样。 
+
+	请求转发 一次
+	重定向 两次
+	
+3. 数据无法传递。
+4. 效率问题
+5. 跳转范围有限制
+
+	请求转发： 只能针对当前的项目
+	重定向： 没有任何限制。
+	
+	
+Cookie
+
+什么是cookie?
+
+	服务器发送给客户端，并且存储在客户端的小数据。 客户端下一次来访，会带上早前给的cookie数据
+	
+cookie 怎么用?
+
+
+	发送cookie
+		
+		Cookie cookie = new Cookie("aa","bb");
+		reponse.addCookie(cookie);
+		
+		
+		Cookie cookie2 = new Cookie("cc","dd");
+		reponse.addCookie(cookie2);
+		
+		
+		服务器返回cookie 给客户端 放置在响应头里面
+		
+		Set-Cookie : aa=bb
+		Set-Cookie : cc=dd
+		
+	
+	
+	收cookie
+	
+		//为什么这个返回的是数组?
+		Cookie [] cookies = requset.getCookies ();
+		
+		客户端提交数据的时候， cookie也是在请求头里面
+		
+		
+		Cookie : aa=bb;cc=dd
+		
+Cookie 分类
+
+	会话cookie
+	
+		关闭浏览器，cookie就删除，失效
+	
+	持久cookie
+	
+		在指定时间内，都一直有效。 
+		
+		指定时间，怎么指定?
+		
+		Cookie cookie = new Cookie("aa","bb");
+		cookie.setMaxAge();//秒
+		reponse.addCookie(cookie);
+		
+		
+		news.baidu.com/
+		music.baidu.com
+		sport.baidu.com
+		...
+		
+		cookie.setDomain(".itheima.com"); ---> 浏览器在访问这个域名的时候，才会带上这个cookie 
+		
+		cookie.setPath("/aa"); ---> 访问上面这个域名下的这个aa的路径才会带cookie  这个路径其实就是一个项目
+		
+		http://www.ithiam.com:80/aa
+		http://localhost:8080/aa
+
+移除Cookie
+
+	官方没有提供delete方法。 也没有什么remove方法。
+	
+	Cookie cookie = new Cookie("aa","bb");
+	cookie.setMaxAge(60*60*24);
+	reponse.addCookie(cookie);
+	
+	
+	删除cookie
+	
+	一： 
+		得到以前的cookie，然后重新设置有效期
+		
+		Cookie [] cookies = request.getCookies();
+		Cookie cookie = CookieUtil.findCookie(cookies , "aa");
+		cookie.setMaxAge(0);
+		reponse.addCookie(cookie);
+		
+	二：
+	
+		创建一个新的cookie
+		Cookie cookie = new Cookie("aa","xx");
+		cookie.setMaxAge(0);
+		reponse.addCookie(cookie);
+
+Session
+
+	是什么?
+
+		也是一种会话技术， 基于cookie的一种会话技术。 
+		cookie 是可以把数据存放在客户端， 下一次来访的时候，带上那个数据，服务器就知道客户端是谁了。 ---》 安全隐患。
+	
+		Session : 数据存放在服务器端。  并且把这个session对应的sessionID ，传递给客户端。是通过
+		Cookie去传递的。 下一次客户端在来访的时候，带上那个sessionID ，就可以取到以前的数据了。
+			
+	怎么用Session。
+	
+		HttpSesssion session = request.getSession();
+	
+		session.setAttribute();
+		session.getAttribute();
+	
+session什么时候创建， 什么时候销毁?
+
+调用request.getSession 就会创建
+
+关闭服务器即销毁， 或者会话过期，超过了设定时间，默认30分钟。
+
+关闭浏览器， session会销毁嘛?
+
+不会，为什么? ---> 因为这个session 数据是存放在服务器的内存中的。
+
+那么为什么再一次开启浏览器访问的时候，无法取到以前的数据。
+
+因为sessionid是通过cookie来传递的。 但是这个cookie并没有设置有效期。 所以关闭浏览器之后， cookie就删除了。
+表明里面的那个sessionID 也就没有了。下一次再来访问。 如果还想在下一次访问的时候，取到以前的数据。
+
+1. 在服务器端手动设置cookie
+
+		String id = request.getSession().getId();
+		Cookie cookie = new Cookie("JSESSIONID",id);
+		cookie.setMaxAge(60*60*24*7);//7天
+		reponse.addCookie(cookie);
+
+
+	
+	
+	
+	
+	
+	
