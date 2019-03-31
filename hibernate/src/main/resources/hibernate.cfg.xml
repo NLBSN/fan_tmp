@@ -43,5 +43,10 @@
         <property name="hibernate.current_session_context_class">thread</property>
 
         <mapping resource="com/fan/hibernate/xml/Customer.hbm.xml"/>
+        <!-- 引入映射 -->
+        <!-- <mapping resource="com/itheima/hibernate/domain/Customer.hbm.xml"/>
+        <mapping resource="com/itheima/hibernate/domain/LinkMan.hbm.xml"/> -->
+        <mapping resource="com/itheima/hibernate/domain/User.hbm.xml"/>
+        <mapping resource="com/itheima/hibernate/domain/Role.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
