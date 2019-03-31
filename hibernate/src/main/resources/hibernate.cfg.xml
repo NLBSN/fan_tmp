@@ -37,6 +37,11 @@
         <property name="c3p0.idleConnectionTestPeriod">18000</property>
         <property name="c3p0.maxIdleTime">25000</property>
 
+        <!-- 设置事务隔离级别 -->
+        <property name="hibernate.connection.isolation">4</property>
+        <!-- 配置当前线程绑定的Session -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
         <mapping resource="com/fan/hibernate/xml/Customer.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
