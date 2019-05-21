@@ -16,14 +16,27 @@ import java.util.concurrent.ExecutionException;
  */
 public class ConKa {
 
-
+    String topic="10.40.17.98:9092";
     public void init() {
         Properties properties = new Properties();
-        properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "10.40.17.100:9092");
+        properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, topic);
         AdminClient adminClient = AdminClient.create(properties);
-        NewTopic newTopic = new NewTopic("twp_bean", 1, (short) 1);
+        // NewTopic newTopic = new NewTopic("twp_bean", 1, (short) 1);
         Collection<NewTopic> collections = new ArrayList<NewTopic>();
-        collections.add(newTopic);
+        collections.add(new NewTopic("twp-mpg-point", 1, (short) 1));
+        collections.add(new NewTopic("twp-mpg-point1", 1, (short) 1));
+        collections.add(new NewTopic("twp-mpg-point2", 1, (short) 1));
+        collections.add(new NewTopic("twp-mpg-point3", 1, (short) 1));
+        collections.add(new NewTopic("twp-mpg-point4", 1, (short) 1));
+        collections.add(new NewTopic("twp-mpg-point5", 1, (short) 1));
+        // collections.add( new NewTopic("twnwis",1 ,(short)1 ));
+        // collections.add( new NewTopic("twpwis",1 ,(short)1 ));
+        // collections.add( new NewTopic("twobean", 1, (short)1));
+        // collections.add( new NewTopic("twnbean",1 , (short)1));
+        // collections.add( new NewTopic("twpbean", 1, (short)1));
+        // collections.add( new NewTopic("gldlink", 1, (short)1));
+        // collections.add( new NewTopic("risklink", 1, (short)1));
+
         CreateTopicsResult topics = adminClient.createTopics(collections);
         // ListTopicsOptions options = new ListTopicsOptions();
         // ListTopicsResult listTopicsResult = newAdminClient.listTopics();
@@ -31,17 +44,28 @@ public class ConKa {
     }
 
     public static void main(String[] args) throws Exception {
-        // new ConKa().init();
+        new ConKa().init();
+        // new ConKa().delTopic();
         new ConKa().getTopic();
+
     }
 
     private void getTopic() throws Exception {
         Properties properties = new Properties();
-        properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, "10.40.17.99:9092,10.40.17.100:9092");
+        properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, topic);
         AdminClient adminClient = AdminClient.create(properties);
         ListTopicsResult listTopicsResult = adminClient.listTopics();
         Set<String> strings = listTopicsResult.names().get();
         System.out.println("发现 " + strings.size() + "个kafka topic ：" + strings.toString());
+        adminClient.close();
+    }
+
+    private void delTopic() throws Exception {
+        Properties properties = new Properties();
+        properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, topic);
+        AdminClient adminClient = AdminClient.create(properties);
+        DeleteTopicsResult two_test = adminClient.deleteTopics(Collections.singleton("twn_bean"));
+        System.out.println(two_test.values());
         adminClient.close();
     }
 }
