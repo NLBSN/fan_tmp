@@ -22,7 +22,8 @@
 
         <!-- 配置C3P0连接池 org.hibernate.connection.C3P0ConnectionProvider  视频中提供的类路径 -->
         <!-- 作为了解即可，因为最终要整合到ssh中，交由spring做统一的管理 -->
-        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider
+        </property>
         <!--在连接池中所有数据库连接的最大数目  -->
         <property name="hibernate.c3p0.max_size">20</property>
         <!--在连接池中可用的数据库连接的最少数目 -->
@@ -44,8 +45,8 @@
 
         <mapping resource="com/fan/hibernate/xml/Customer.hbm.xml"/>
         <!-- 引入映射 -->
-        <!-- <mapping resource="com/itheima/hibernate/domain/Customer.hbm.xml"/>
-        <mapping resource="com/itheima/hibernate/domain/LinkMan.hbm.xml"/> -->
+        <mapping resource="com/itheima/hibernate/domain/Customer.hbm.xml"/>
+        <mapping resource="com/itheima/hibernate/domain/LinkMan.hbm.xml"/>
         <mapping resource="com/itheima/hibernate/domain/User.hbm.xml"/>
         <mapping resource="com/itheima/hibernate/domain/Role.hbm.xml"/>
     </session-factory>
