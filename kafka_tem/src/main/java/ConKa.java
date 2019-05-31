@@ -16,27 +16,26 @@ import java.util.concurrent.ExecutionException;
  */
 public class ConKa {
 
-    String topic="10.40.17.98:9092";
+    String topic = "10.40.17.98:9092";
+
     public void init() {
         Properties properties = new Properties();
         properties.put(CommonClientConfigs.BOOTSTRAP_SERVERS_CONFIG, topic);
         AdminClient adminClient = AdminClient.create(properties);
         // NewTopic newTopic = new NewTopic("twp_bean", 1, (short) 1);
         Collection<NewTopic> collections = new ArrayList<NewTopic>();
-        collections.add(new NewTopic("twp-mpg-point", 1, (short) 1));
-        collections.add(new NewTopic("twp-mpg-point1", 1, (short) 1));
-        collections.add(new NewTopic("twp-mpg-point2", 1, (short) 1));
-        collections.add(new NewTopic("twp-mpg-point3", 1, (short) 1));
-        collections.add(new NewTopic("twp-mpg-point4", 1, (short) 1));
-        collections.add(new NewTopic("twp-mpg-point5", 1, (short) 1));
-        // collections.add( new NewTopic("twnwis",1 ,(short)1 ));
-        // collections.add( new NewTopic("twpwis",1 ,(short)1 ));
-        // collections.add( new NewTopic("twobean", 1, (short)1));
-        // collections.add( new NewTopic("twnbean",1 , (short)1));
-        // collections.add( new NewTopic("twpbean", 1, (short)1));
-        // collections.add( new NewTopic("gldlink", 1, (short)1));
-        // collections.add( new NewTopic("risklink", 1, (short)1));
-
+        collections.add(new NewTopic("two_test", 1, (short) 1));
+        collections.add(new NewTopic("two_bean", 1, (short) 1));
+        collections.add(new NewTopic("two-risk", 1, (short) 1));
+        collections.add(new NewTopic("two-mpg-point", 1, (short) 1));
+        collections.add(new NewTopic("two-mpg", 1, (short) 1));
+        collections.add(new NewTopic("twn_test", 1, (short) 1));
+        collections.add(new NewTopic("twn_bean", 1, (short) 1));
+        collections.add(new NewTopic("twn-risk", 1, (short) 1));
+        collections.add(new NewTopic("twn-mpg-point", 1, (short) 1));
+        collections.add(new NewTopic("twn-mpg", 1, (short) 1));
+        collections.add(new NewTopic("risk-link", 1, (short) 1));
+        collections.add(new NewTopic("gld-link", 1, (short) 1));
         CreateTopicsResult topics = adminClient.createTopics(collections);
         // ListTopicsOptions options = new ListTopicsOptions();
         // ListTopicsResult listTopicsResult = newAdminClient.listTopics();
