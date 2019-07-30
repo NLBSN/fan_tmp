@@ -28,7 +28,7 @@ public class Main {
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File("D:\\wis_work\\data\\MSP3_PMSC_TWO_ME_L88_CRN_201904041420_0000-0000.TXT")), "utf-8"));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File("D:\\wis_work\\data\\MSP3_PMSC_TWO_ME_L88_CRN_201907291630_0000-0000.TXT")), "utf-8"));
         Producer<String, String> producer = new KafkaProducer<>(props);
         String tmpLine = new String();
         // StringBuffer stringBuffer = new StringBuffer();
@@ -36,7 +36,7 @@ public class Main {
         while ((tmpLine = bufferedReader.readLine()) != null) {
             // String[] split = tmpLine.split(",", 2);
             System.out.println(i++ + "---" + tmpLine);
-            producer.send(new ProducerRecord<String, String>("twp-mpg-point1", "201904041420", tmpLine));
+            producer.send(new ProducerRecord<String, String>("twp-mpg-point1", "201907291630", tmpLine));
 
         }
         // for (int i = 0; i < 100; i++) {

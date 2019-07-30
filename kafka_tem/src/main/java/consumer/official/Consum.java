@@ -1,5 +1,6 @@
 package consumer.official;
 
+import com.sun.webkit.event.WCChangeEvent;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -18,7 +19,7 @@ import java.util.Properties;
  */
 public class Consum {
     private final static Logger LOGGER = Logger.getLogger(Consum.class);
-    private static JedisCluster redisClusterObject = null;
+    // private static JedisCluster redisClusterObject = null;
 
     public static void main(String[] args) throws IOException {
         Properties props = new Properties();
@@ -31,42 +32,32 @@ public class Consum {
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("twp-mpg-point1"));
+        consumer.subscribe(Arrays.asList("two_bean"));
         int i = 0;//023510114201901301530201233200
-        // BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("d:\\data\\risk01.txt")), "utf-8"));
-        redisClusterObject = MyJedisClusterPool.getRedisClusterObject();
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File("d:\\wis_work\\data\\bean02.txt")), "utf-8"));
+        // redisClusterObject = MyJedisClusterPool.getRedisClusterObject();
+        wc:
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(100);
             for (ConsumerRecord<String, String> record : records) {
                 String key = record.key();
                 String value = record.value();
-                // if (value.contains("over") || value.contains("jie")) {
-                //     redisClusterObject.hset(key.substring(0, key.length() - 2), "00", "");
-                // } else {
-                // if (key.substring(0, 1).equals("0")) {
-                // if (key.substring(2, 3).equals("1")) {
-                // if (key.substring(1, 2).equals("1") && value.contains("point")) {
-                // if (value.contains("over")) {
-                // i++;
-                // } else if (i > 0) {
-                System.out.println(i++ + "---" + "offset = " + record.offset() + ", key = " + key + ", value = " + value);
-                // redisClusterObject.hset(key.substring(0, key.length() - 2), "00", value);
-                // bufferedWriter.write(key + "    " + value);
-                // bufferedWriter.write("\n");
-                // bufferedWriter.flush();
-                // }
-                // if (i > 1)
-                //     System.exit(0);
-                //
-                // }
-                // }
-                // }
-
-                // }
-
+                if (value.contains("over") || value.contains("jie")) {
+                    i++;
+                    bufferedWriter.write("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                    bufferedWriter.write("\n");
+                    bufferedWriter.flush();
+                    System.out.println("---------------------------------结束了一个时次的---------------------------------------");
+                    // redisClusterObject.hset(key.substring(0, key.length() - 2), "00", "");
+                } else /*if (key.substring(0, 1).equals("1") && key.substring(1, 2).equals("1"))*/ {
+                    if (i > 5) break wc;
+                    System.out.println("---" + "offset = " + record.offset() + ", key = " + key + ", value = " + value);
+                    // redisClusterObject.hset(key.substring(0, key.length() - 2), "00", value);
+                    bufferedWriter.write(key + "=====" + value);
+                    bufferedWriter.write("\n");
+                    bufferedWriter.flush();
+                }
             }
         }
     }
-
-
 }
