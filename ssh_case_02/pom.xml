@@ -22,7 +22,7 @@
     <properties>
         <spring.version>4.2.4.RELEASE</spring.version>
         <struts.version>2.3.24</struts.version>
-        <hibernate.version>5.0.7.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
     </properties>
 
     <dependencies>
