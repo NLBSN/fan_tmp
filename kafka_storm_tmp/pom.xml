@@ -21,7 +21,7 @@
         <storm-core>1.1.3</storm-core>
         <kafka-clients>1.1.0</kafka-clients>
         <commons-pool2>2.6.0</commons-pool2>
-        <hadoop-common>3.1.1</hadoop-common>
+        <hadoop-common>3.1.4</hadoop-common>
         <hadoop-mapreduce-client-core>3.1.0</hadoop-mapreduce-client-core><!-->其实这儿的可以去掉，因为里面有MR,可以去掉<-->
     </properties>
 
