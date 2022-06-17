@@ -26,7 +26,7 @@
     <commons-pool2>2.6.0</commons-pool2>
     <hadoop-common>3.1.1</hadoop-common>
     <postgresql>42.2.5</postgresql>
-    <com.alibaba.fastjson>1.2.51</com.alibaba.fastjson>
+    <com.alibaba.fastjson>1.2.83</com.alibaba.fastjson>
   </properties>
 
   <dependencies>
